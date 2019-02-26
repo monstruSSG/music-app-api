@@ -1,0 +1,674 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpotifyApi</name>
+    </assembly>
+    <members>
+        <member name="M:SpotifyApi.Controllers.AlbumController.Get(SpotifyApi.Domain.Dtos.ResourceParameters.AlbumResourceParameters)">
+             <summary>
+             Gets a paged list of all Albums
+             </summary>
+             <remarks>
+             Sample header:
+             Authentication: Bearer {token}
+             Sample request:
+            
+                 GET /api/album
+            
+             </remarks>
+             <returns>A  paged list of Albums</returns>
+             <response code="200"></response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.AlbumController.Get(System.Int32)">
+             <summary>
+             Gets a specific Album by {id}
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/album/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The album with the given id</returns>
+             <response code="200">Returns the album</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Album with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.AlbumController.Post(SpotifyApi.Domain.Dtos.AlbumToCreateDto)">
+             <summary>
+             Creates a specific Album 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/album
+                 {
+                    "name": "Best Album",
+                    "type": "Rap",
+                    "imgUri": "http://album.com/album_photo",
+                    "tracks": []
+                 }
+            
+             </remarks>
+             <returns>The album </returns>
+             <response code="200">Returns the created album</response>
+             <response code="400">Invalid model</response>   
+        </member>
+        <member name="M:SpotifyApi.Controllers.AlbumController.Delete(System.Int32)">
+             <summary>
+             Deletes a specific album
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/album/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The album with the given id</returns>
+             <response code="200">Returns deleted album</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Album with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.AlbumController.Update(System.Int32,SpotifyApi.Domain.Dtos.AlbumToCreateDto)">
+             <summary>
+             Updates a specific Album by {id}
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/album/{id}
+                 {  
+                    "name": "Best Album",
+                    "type": "Rap",
+                    "imgUri": "http://album.com/album_photo",
+                    "tracks": []
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The album with the given id</returns>
+             <response code="200">Returns the album</response>
+             <response code="400">If the request has no id or invalid album model</response>   
+             <response code="404">Album with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.AlbumController.AddTrack(System.Int32,SpotifyApi.Domain.Dtos.TrackDto)">
+             <summary>
+             Adds a track to a specific album
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PATCH /{id}/track
+                 {  
+                    "name": "Best track",
+                    "href": "http://best_track.com/2",
+                    "previewUrl": "http://best_track.com/2",
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The album with the given id</returns>
+             <response code="200">Returns the album with new track</response>
+             <response code="400">If the request has no id or invalid track model</response>   
+             <response code="404">Album with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.ArtistController.Get(SpotifyApi.Domain.Dtos.ResourceParameters.ArtistResourceParameters)">
+             <summary>
+             Gets a paged list of all Artists
+             </summary>
+             <remarks>
+             Sample header:
+             Authentication: Bearer {token}
+             Sample request:
+            
+                 GET /api/artist
+            
+             </remarks>
+             <returns>A paged list of Artists</returns>
+             <response code="200"></response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.ArtistController.Post(SpotifyApi.Domain.Dtos.ArtistToCreateDto)">
+             <summary>
+             Creates a specific Artist 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/album
+                 {
+                    "name": "Best Album",
+                    "uri": "http://example.com",
+                    "imgUri": "http://album.com/album_photo"
+                 }
+            
+             </remarks>
+             <returns>The Artist </returns>
+             <response code="200">Returns the created Artist</response>
+             <response code="400">Invalid model</response>   
+        </member>
+        <member name="M:SpotifyApi.Controllers.ArtistController.Get(System.Int32)">
+             <summary>
+             Gets a specific Artist by {id}
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/artist/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The artist with the given id</returns>
+             <response code="200">Returns the artist</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">artist with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.ArtistController.Delete(System.Int32)">
+             <summary>
+             Deletes a specific artist
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/artist/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The artist with the given id</returns>
+             <response code="200">DeletedArtist</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Album with given id not found</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.ArtistController.Update(System.Int32,SpotifyApi.Domain.Dtos.ArtistToCreateDto)">
+             <summary>
+             Updates a specific Artist by {id}
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/artist/{id}
+                 {  
+                    "name": "Best Album",
+                    "uri": "http://example.com",
+                    "imgUri": "http://album.com/album_photo"
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The album with the given id</returns>
+             <response code="200">Returns the Artist</response>
+             <response code="400">If the request has no id or invalid artist model</response>   
+             <response code="404">Artist with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistAlbumController.Get(SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistAlbumResourceParameters)">
+             <summary>
+             Gets a paged list of all Albums
+             </summary>
+             <remarks>
+             Sample header:
+             Authentication: Bearer {token}
+             Sample request:
+            
+                 GET /api/playlistalbum
+            
+             </remarks>
+             <returns>A  paged list of Abums</returns>
+             <response code="200"></response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistAlbumController.Post(SpotifyApi.Domain.Dtos.PlaylistAlbumToCreateDto)">
+             <summary>
+             Creates a specific Album 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/playlistalbum
+                 {
+                    "userName": "celMaiTareUSer",
+                    "name": "Best Album",
+                    "previewUrl": "http://listen.com/liste_me",
+                    "href": "http://album.com/track",
+                    "tracks": []
+                 }
+            
+             </remarks>
+             <returns>The Album </returns>
+             <response code="200">Returns the created album</response>
+             <response code="400">Invalid model</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistAlbumController.Delete(System.Int32)">
+             <summary>
+             Deletes a specific album
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/playlistalbum/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The album with the given id</returns>
+             <response code="200">DeletedPlaylistAlbum</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Album with given id not found</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistArtistController.Get(SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistArtistResourceParameters)">
+             <summary>
+             Gets a paged list of all Artists
+             </summary>
+             <remarks>
+             Sample header:
+             Authentication: Bearer {token}
+             Sample request:
+            
+                 GET /api/playlistartist
+            
+             </remarks>
+             <returns>A paged list of Artists</returns>
+             <response code="200"></response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistArtistController.Post(SpotifyApi.Domain.Dtos.PlaylistArtistToCreateDto)">
+             <summary>
+             Creates a specific Artist 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/playlistartist
+                 {
+                    "userName": "celMaiTareUSer",
+                    "name": "Best Album",
+                    "imgUri": "http://photos.com/1",
+                    "uri": "http://album.com/track",
+                    "tracks": []
+                 }
+            
+             </remarks>
+             <returns>The Artist </returns>
+             <response code="200">Returns the created Artist</response>
+             <response code="400">Invalid model</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistArtistController.Delete(System.Int32)">
+             <summary>
+             Deletes a specific artist
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/playlistartist/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The artist with the given id</returns>
+             <response code="200">PlaylistArtist</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Artist with given id not found</response>
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistTrackController.Get(SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistTrackResourceParameters)">
+             <summary>
+             Gets a paged list of all Tracks
+             </summary>
+             <remarks>
+             Sample header:
+             Authentication: Bearer {token}
+             Sample request:
+            
+                 GET /api/playlisttrack
+            
+             </remarks>
+             <returns>A  paged list of Tracks</returns>
+             <response code="200"></response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistTrackController.Post(SpotifyApi.Domain.Dtos.PlaylistTrackToCreateDto)">
+             <summary>
+             Creates a specific Track 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/playlisttrack
+                 {
+                    "userName": "celMaiTareUSer",
+                    "name": "Best Album",
+                    "previewUrl": "http://listen.com/liste_me",
+                    "href": "http://album.com/track",
+                 }
+            
+             </remarks>
+             <returns>The Track </returns>
+             <response code="200">Returns the created track</response>
+             <response code="400">Invalid model</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.PlaylistTrackController.Delete(System.Int32)">
+             <summary>
+             Deletes a specific track
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/playlisttrack/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The track with the given id</returns>
+             <response code="200">PlaylistTrack</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Track with given id not found</response>
+        </member>
+        <member name="M:SpotifyApi.Controllers.RequestController.Get(SpotifyApi.Domain.Dtos.ResourceParameters.RequestResourceParameters)">
+             <summary>
+             Gets a paged list of all Requests made to server
+             </summary>
+             <remarks>
+             Sample header:
+             Authentication: Bearer {token}
+             Roles : Admin
+             Sample request:
+            
+                 GET /api/request
+            
+             </remarks>
+             <returns>A  paged list of Requests</returns>
+             <response code="200"></response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.RequestController.Get(System.Int32)">
+             <summary>
+             Gets a specific Request by {id}
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/request/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The Request with the given id</returns>
+             <response code="200">Returns the Request</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Request with given id not found</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.TrackController.Get(SpotifyApi.Domain.Dtos.ResourceParameters.TrackResourceParameters)">
+             <summary>
+             Gets a paged list of all Tracks
+             </summary>
+             <remarks>
+             Sample header:
+             Authentication: Bearer {token}
+             Sample request:
+            
+                 GET /api/track
+            
+             </remarks>
+             <returns>A  paged list of Tracks</returns>
+             <response code="200"></response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.TrackController.Get(System.Int32)">
+             <summary>
+             Gets a specific Track by {id}
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/track/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The track with the given id</returns>
+             <response code="200">Returns the track</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">Track with given id not found</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.TrackController.Post(SpotifyApi.Domain.Dtos.TrackToCreateDto)">
+             <summary>
+             Creates a specific Track 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/album
+                 {
+                    "name": "Best Album",
+                    "previewUrl": "http://listen.com/liste_me",
+                    "href": "http://album.com/track",
+                    "artists": []
+                 }
+            
+             </remarks>
+             <returns>The Track </returns>
+             <response code="200">Returns the created track</response>
+             <response code="400">Invalid model</response> 
+        </member>
+        <member name="M:SpotifyApi.Controllers.TrackController.Update(System.Int32,SpotifyApi.Domain.Dtos.TrackToCreateDto)">
+             <summary>
+             Updates a specific Track by {id}
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT /api/album/{id}
+                 {
+                    "name": "Best Album",
+                    "previewUrl": "http://listen.com/liste_me",
+                    "href": "http://album.com/track",
+                    "artists": []
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The Track with the given id</returns>
+             <response code="200">Returns the Track</response>
+             <response code="400">If the request has no id or invalid album model</response>   
+             <response code="404">Track with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.TrackController.Delete(System.Int32)">
+             <summary>
+             Deletes a specific track
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE /api/track/{id}
+                 {
+                    "id": 1,
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The track with the given id</returns>
+             <response code="200">Track</response>
+             <response code="400">If the request has no id</response>   
+             <response code="404">trac with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.TrackController.AddArtistToTrack(System.Int32,SpotifyApi.Domain.Dtos.ArtistToCreateDto)">
+             <summary>
+             Adds a track to a specifictrack
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PATCH /{id}/track
+                 {  
+                    "name": "Best Artist"
+                     
+                 }
+            
+             </remarks>
+             <param name="id">Required</param>
+             <returns>The track with the given id</returns>
+             <response code="200">Returns the track with new track</response>
+             <response code="400">If the request has no id or invalid track model</response>   
+             <response code="404">track with given id not found</response>  
+        </member>
+        <member name="M:SpotifyApi.Controllers.UserController.Login(SpotifyApi.Domain.Dtos.UserForLoginDto)">
+             <summary>
+             Creates a token for a user 
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/user/login
+                 {
+                    "userName": "Xulescu",
+                    "password": "NotParola12"
+                 }
+            
+             </remarks>
+             <returns>The token and some user info </returns>
+             <response code="200">Returns the created toen + user</response>
+             <response code="400">Invalid model</response>   
+        </member>
+        <member name="M:SpotifyApi.Controllers.UserController.Register(SpotifyApi.Domain.Dtos.UserForRegisterDto)">
+             <summary>
+             Creates a new user with user permissions
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/user
+                 {
+                    "userName": "Xulescu",
+                    "email": "x_ulescu@gmail.com",
+                    "password": "NotParola12"
+                 }
+            
+             </remarks>
+             <returns>No Content</returns>
+             <response code="201">No Content</response>
+             <response code="400">Invalid model</response>
+        </member>
+        <member name="M:SpotifyApi.Controllers.UserController.RegisterAdmin(SpotifyApi.Domain.Dtos.UserForRegisterDto)">
+             <summary>
+             Creates a new user with user and admin permissions
+             </summary>
+             <remarks>
+             Remark: You have to have admin permission to create an admin user
+             Sample request:
+                 
+                 POST /api/user
+                 {
+                    "userName": "Xulescu",
+                    "email": "x_ulescu@gmail.com",
+                    "password": "NotParola12"
+                 }
+            
+             </remarks>
+             <returns>No Content</returns>
+             <response code="201">No Content</response>
+             <response code="400">Invalid model</response>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.AlbumResourceParameters.Type">
+            <summary>
+            If set returnes Albums with this type
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.AlbumResourceParameters.Name">
+            <summary>
+            If set returnes Albums with this name
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.ArtistResourceParameters.Name">
+            <summary>
+            If set returnes Artists with this name
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistAlbumResourceParameters.Type">
+            <summary>
+            If set returnes Albums with this type
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistAlbumResourceParameters.Name">
+            <summary>
+            If set returnes Albums with this name
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistAlbumResourceParameters.UserName">
+            <summary>
+            If set returnes Albums with this userName
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistArtistResourceParameters.Name">
+            <summary>
+            If set returnes Artists with this name
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistArtistResourceParameters.UserName">
+            <summary>
+            If set returnes Artists with this userName
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistTrackResourceParameters.Name">
+            <summary>
+            If set returnes Tracks with this name
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.PlaylistTrackResourceParameters.UserName">
+            <summary>
+            If set returnes Tracks with this userName
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.RequestResourceParameters.Method">
+            <summary>
+            If set returnes Requests with this Method
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.RequestResourceParameters.Destination">
+            <summary>
+            If set returnes Request with this destination
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.RequestResourceParameters.Source">
+            <summary>
+            If set returnes Requests with this Source
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.ResourceParameters.TrackResourceParameters.Name">
+            <summary>
+            If set returnes Tracks with this Name
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.BaseResourceParameters.SearchQuery">
+            <summary>
+            Enter a string and everiything that matches this string will be returned
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.BaseResourceParameters.PageNumber">
+            <summary>
+            Page number to be returned, default 1
+            </summary>
+        </member>
+        <member name="P:SpotifyApi.Domain.Dtos.BaseResourceParameters.PageSize">
+            <summary>
+            Page size to be returned, default 10,
+            if pageSize > 20 20 will be set as pageSize => maxium = 20
+            </summary>
+        </member>
+    </members>
+</doc>
